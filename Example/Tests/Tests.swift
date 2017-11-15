@@ -1,6 +1,6 @@
 import UIKit
 import XCTest
-import Swift-M
+import Swift_M
 
 class Tests: XCTestCase {
     

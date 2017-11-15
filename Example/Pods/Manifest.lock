@@ -1,0 +1,16 @@
+PODS:
+  - Swift-M (1.0.0)
+
+DEPENDENCIES:
+  - Swift-M (from `../`)
+
+EXTERNAL SOURCES:
+  Swift-M:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Swift-M: 079bbe1902cabbe9757eadea56994e459bb608b7
+
+PODFILE CHECKSUM: 326a3703fbf87bb6f2a5de5de04ed49cdc6b536f
+
+COCOAPODS: 1.2.1
