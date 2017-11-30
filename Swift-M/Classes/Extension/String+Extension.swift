@@ -30,9 +30,9 @@ public extension String {
 public extension String {
     
     public func size(with font: UIFont, toSize: CGSize = CGSize.zero, option: NSStringDrawingOptions = .usesLineFragmentOrigin) -> CGSize {
-        let attributes = [NSFontAttributeName: font]
+        let attributes = [NSAttributedStringKey.font: font]
         if __CGSizeEqualToSize(toSize, CGSize.zero) {
-            return self.size(attributes:attributes)
+            return self.size(withAttributes:attributes)
         }
         return self.boundingRect(with: toSize, options: option, attributes: attributes, context: nil).size
     }
@@ -43,14 +43,14 @@ public extension String {
         let temLable = UILabel(frame: CGRect.init(x: 0, y: 0, width: width, height: 0))
         temLable.numberOfLines = 0
         temLable.text = self
-        temLable.font = font
+        temLable.font = font 
         temLable.sizeToFit()
         return temLable.frame.size
     }
     func autoLabelHeight(with text:String , labelWidth: CGFloat ,attributes : [NSAttributedStringKey : Any]) -> CGFloat{
         var size = CGRect()
         let size2 = CGSize(width: labelWidth, height: 0)//设置label的最大宽度
-        size = text.boundingRect(with: size2, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes as [String : Any] , context: nil);
+        size = text.boundingRect(with: size2, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes as [NSAttributedStringKey : Any] , context: nil);
         return size.size.height
     }
 
