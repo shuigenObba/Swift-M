@@ -30,9 +30,9 @@ public extension String {
 public extension String {
     
     public func size(with font: UIFont, toSize: CGSize = CGSize.zero, option: NSStringDrawingOptions = .usesLineFragmentOrigin) -> CGSize {
-        let attributes = [NSAttributedStringKey.font: font]
+        let attributes = [NSFontAttributeName: font]
         if __CGSizeEqualToSize(toSize, CGSize.zero) {
-            return self.size(withAttributes:attributes)
+            return self.size(attributes:attributes)
         }
         return self.boundingRect(with: toSize, options: option, attributes: attributes, context: nil).size
     }
@@ -50,7 +50,7 @@ public extension String {
     func autoLabelHeight(with text:String , labelWidth: CGFloat ,attributes : [NSAttributedStringKey : Any]) -> CGFloat{
         var size = CGRect()
         let size2 = CGSize(width: labelWidth, height: 0)//设置label的最大宽度
-        size = text.boundingRect(with: size2, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes , context: nil);
+        size = text.boundingRect(with: size2, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes as [String : Any] , context: nil);
         return size.size.height
     }
 
